@@ -1,1 +1,164 @@
-Hello World
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream Audio</title>
+    <style>
+        /* Style global */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Fond noir */
+            color: #fff; /* Texte blanc */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        h1, p {
+            text-align: center;
+        }
+        img {
+            max-width: 12%; /* Ajuste l'image à la largeur de l'écran */
+            height: auto; /* Préserve les proportions */
+            margin-bottom: 20px;
+        }
+        audio {
+            margin: 20px 0;
+            width: 100%; /* S'adapte à la largeur disponible */
+            max-width: 400px; /* Limite la taille sur grand écran */
+        }
+        iframe {
+            margin-top: 20px;
+            border: none;
+            width: 350px;
+            height: 500px;
+        }
+        .share-button {
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #1DB954; /* Couleur verte pour partager */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .share-button:hover {
+            background-color: #159d43;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #5865F2; /* Couleur Discord */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        a:hover {
+            background-color: #4752c4;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Icônes dans le pied de page */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .social-icons a {
+            color: #fff; /* Couleur des icônes */
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #1DB954; /* Couleur verte au survol */
+        }
+
+        /* Responsive pour appareils mobiles */
+        @media (max-width: 768px) {
+            img {
+                max-width: 40%; /* Image plus grande sur mobile */
+            }
+            iframe {
+                width: 90%;
+                height: 300px; /* Hauteur réduite pour petits écrans */
+            }
+            footer {
+                font-size: 0.8rem; /* Texte du pied de page plus petit */
+            }
+            .share-button, a {
+                font-size: 0.9rem; /* Taille réduite pour les boutons */
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Image au-dessus du titre -->
+    <img src="C:\Users\dstrk\Desktop\LiveDJSetWEBProject\Gablacroix.jpg" alt="Bannière Live Stream Audio">
+
+    <h1>Live Stream Audio</h1>
+    <p>Écoutez le DJ Set de Gab Lacroix en direct</p>
+
+    <!-- Lecteur audio -->
+    <audio controls>
+        <source src="http://your-server-url/stream" type="audio/mpeg">
+        Votre navigateur ne supporte pas le lecteur audio.
+    </audio>
+
+    <!-- Bouton "Partager le stream" -->
+    <button class="share-button" onclick="shareStream()">Partager le stream</button>
+
+    <!-- Widget Discord -->
+    <iframe 
+        src="https://discord.com/widget?id=VOTRE_ID_DE_SERVEUR&theme=dark" 
+        allowtransparency="true" 
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+
+    <!-- Lien pour rejoindre Discord -->
+    <a href="https://discord.gg/VOTRE_LIEN_INVITATION" target="_blank">Rejoindre notre Discord</a>
+
+    <!-- Pied de page -->
+    <footer>
+		<p>
+            Bienvenue sur le site officiel de Gab Lacroix. 
+            Ici, vous pouvez écouter des DJ sets en direct, explorer les nouvelles tendances musicales actuelles 
+            et interagir avec notre communauté sur Discord. Restez connectés et profitez de l'expérience musicale !
+        </p>
+        <p>© 2024 Gab Lacroix. Tous droits réservés.</p>
+        <div class="social-icons">
+            <a href="https://instagram.com/gablacroix_" target="_blank">📷</a>
+            <a href="https://soundcloud.com/dstrkt94" target="_blank">🎵</a>
+            <a href="https://threads.net/gablacroix_" target="_blank">📘</a>
+        </div>
+    </footer>
+
+    <!-- Script pour le bouton de partage -->
+    <script>
+        function shareStream() {
+            const streamUrl = "http://your-server-url/stream";
+            navigator.clipboard.writeText(streamUrl).then(() => {
+                alert("Lien du stream copié dans le presse-papier !");
+            }).catch(err => {
+                alert("Impossible de copier le lien : " + err);
+            });
+        }
+    </script>
+</body>
+</html>
