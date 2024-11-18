@@ -117,7 +117,7 @@
 
     <!-- Lecteur audio -->
     <audio controls>
-        <source src="http://your-server-url/stream" type="audio/mpeg">
+        <source src="http://192.168.0.138:8000/stream" type="audio/mpeg">
         Votre navigateur ne supporte pas le lecteur audio.
     </audio>
 
@@ -152,7 +152,7 @@
     <!-- Script pour le bouton de partage -->
     <script>
         function shareStream() {
-            const streamUrl = "http://your-server-url/stream";
+            const streamUrl = "https://gablacroixdj.github.io/";
             navigator.clipboard.writeText(streamUrl).then(() => {
                 alert("Lien du stream copié dans le presse-papier !");
             }).catch(err => {
