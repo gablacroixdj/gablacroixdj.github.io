@@ -172,17 +172,17 @@
     // Rafraîchir les données toutes les 10 secondes (10000 ms)
     setInterval(loadMetadata, 10000); // Le délai de 10 secondes peut être ajusté selon vos besoins
 </script>
+<script>
 
-
-        // Script pour le bouton de partage
-        function shareStream() {
-            const streamUrl = "https://gablacroixdj.github.io/";
-            navigator.clipboard.writeText(streamUrl).then(() => {
-                alert("Lien du stream copié dans le presse-papier !");
-            }).catch(err => {
-                alert("Impossible de copier le lien : " + err);
-            });
-        }
-    </script>
+    // Script pour le bouton de partage
+    function shareStream() {
+        const streamUrl = "https://gablacroixdj.github.io/";
+        navigator.clipboard.writeText(streamUrl).then(() => {
+            alert("Lien du stream copié dans le presse-papier !");
+        }).catch(err => {
+            alert("Impossible de copier le lien : " + err);
+        });
+    }
+</script>
 </body>
 </html>
