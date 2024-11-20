@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Stream Audio</title>
+    <title>DJ Set Live de Gab Lacroix</title>
     <style>
         /* Style global */
         body {
@@ -21,9 +21,9 @@
             text-align: center;
         }
         img {
-			max-width: 12%;
-			height: auto;
-			object-fit: contain;
+            max-width: 12%;
+            height: auto;
+            object-fit: contain;
         }
         audio {
             margin: 20px 0;
@@ -110,13 +110,13 @@
 </head>
 <body>
     <!-- Image au-dessus du titre -->
-    <img src="GabLacroix.jpg" alt="Bannière Live Stream Audio">
+    <img id="live-image" src="GabLacroix.jpg" alt="Bannière Live Stream Audio">
 
-    <h1>Live Stream Audio</h1>
-    <p>Écoutez le DJ Set de Gab Lacroix en direct</p>
+    <h1 id="live-title">Live Stream Audio</h1>
+    <p id="live-description">Écoutez le DJ Set de Gab Lacroix en direct</p>
 
     <!-- Lecteur audio -->
-    <audio controls>
+    <audio id="audio-player" controls>
         <source src="http://173.177.145.120:8000/stream" type="audio/mpeg">
         Votre navigateur ne supporte pas le lecteur audio.
     </audio>
@@ -136,7 +136,7 @@
 
     <!-- Pied de page -->
     <footer>
-		<p>
+        <p>
             Bienvenue sur le site officiel de Gab Lacroix. 
             Ici, vous pouvez écouter des DJ sets en direct, explorer les nouvelles tendances musicales actuelles 
             et interagir avec notre communauté sur Discord. Restez connectés et profitez de l'expérience musicale !
@@ -149,8 +149,23 @@
         </div>
     </footer>
 
-    <!-- Script pour le bouton de partage -->
+    <!-- Script pour charger les données du fichier metadata.json -->
     <script>
+        // Fonction pour charger les données du fichier JSON
+        fetch('metadata.json')
+            .then(response => response.json())
+            .then(data => {
+                // Mettre à jour le titre et la description dynamiquement
+                document.getElementById('live-title').textContent = data.title;
+                document.getElementById('live-description').textContent = data.description;
+                document.getElementById('audio-player').src = data.streamUrl;
+                document.getElementById('live-image').src = data.imageUrl;
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement des métadonnées :', error);
+            });
+
+        // Script pour le bouton de partage
         function shareStream() {
             const streamUrl = "https://gablacroixdj.github.io/";
             navigator.clipboard.writeText(streamUrl).then(() => {
