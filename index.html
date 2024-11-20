@@ -149,13 +149,13 @@
         </div>
     </footer>
 
-    <!-- Script pour charger les données du fichier metadata.json -->
-    <script>
-        // Fonction pour charger les données du fichier JSON
+<script>
+    // Fonction pour charger les données du fichier JSON
+    function loadMetadata() {
         fetch('metadata.json')
             .then(response => response.json())
             .then(data => {
-                // Mettre à jour le titre et la description dynamiquement
+                // Mettre à jour le titre, la description, le lecteur audio et l'image dynamiquement
                 document.getElementById('live-title').textContent = data.title;
                 document.getElementById('live-description').textContent = data.description;
                 document.getElementById('audio-player').src = data.streamUrl;
@@ -164,6 +164,15 @@
             .catch(error => {
                 console.error('Erreur lors du chargement des métadonnées :', error);
             });
+    }
+
+    // Charger les métadonnées au chargement initial de la page
+    loadMetadata();
+
+    // Rafraîchir les données toutes les 10 secondes (10000 ms)
+    setInterval(loadMetadata, 10000); // Le délai de 10 secondes peut être ajusté selon vos besoins
+</script>
+
 
         // Script pour le bouton de partage
         function shareStream() {
