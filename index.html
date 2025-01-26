@@ -115,36 +115,15 @@
     <h1 id="live-title">Chargement du titre...</h1>
     <p id="live-description">Chargement de la description...</p>
 
-    <!-- Lecteur audio -->
-    <!-- <iframe 
-    src="https://player.twitch.tv/?channel=gablacroix_&parent=gablacroixdj.github.io" 
-    allowfullscreen>
-    </iframe> -->
     
-<!-- Placeholder pour l'intégration Twitch -->
-<div id="twitch-embed"></div>
-
-<!-- Charger le script d'intégration Twitch -->
-<script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-<!-- Script pour initialiser l'intégration Twitch -->
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-        var embed = new Twitch.Embed("twitch-embed", {
-            width: 854,
-            height: 480,
-            channel: "gablacroix_",
-            layout: "video",
-            autoplay: false,
-            parent: ["gablacroixdj.github.io"]
-        });
-
-        embed.addEventListener(Twitch.Embed.VIDEO_READY, function () {
-            var player = embed.getPlayer();
-            player.setMuted(false); // Si tu veux que le son ne soit pas muet par défaut
-        });
-    });
-</script>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe
+            src="https://player.twitch.tv/?channel=gablacroix_&parent=gablacroixdj.github.io"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            allowfullscreen>
+        </iframe>
+    </div>
+    
 
 
     <!-- Bouton "Partager le stream" -->
