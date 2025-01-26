@@ -118,7 +118,7 @@
     
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
         <iframe
-            src="https://player.twitch.tv/?channel=gablacroix_&parent=gablacroixdj.github.io"
+            src="https://player.twitch.tv/?channel=gablacroix_&parent=gablacroixdj.netlify.app"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
             allowfullscreen>
         </iframe>
@@ -181,7 +181,7 @@
 
     // Script pour le bouton de partage
     function shareStream() {
-        const streamUrl = "https://gablacroixdj.github.io/";
+        const streamUrl = "gablacroixdj.netlify.app/";
         navigator.clipboard.writeText(streamUrl).then(() => {
             alert("Lien du stream copié dans le presse-papier !");
         }).catch(err => {
